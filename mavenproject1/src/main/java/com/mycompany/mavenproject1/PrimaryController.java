@@ -1,5 +1,6 @@
 package com.mycompany.mavenproject1;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -26,14 +27,8 @@ public class PrimaryController
     private Button Rus;
     @FXML
     private Button Gha;
-
     @FXML
-    private void clear(ActionEvent event) 
-    {
-        rec1.setFill(Color.WHITE);
-        rec2.setFill(Color.WHITE);
-        rec3.setFill(Color.WHITE);
-    }
+    private Button close;
     
     @FXML
     private void Lesotho(ActionEvent event)
@@ -74,5 +69,39 @@ public class PrimaryController
         rec2.setFill(Color.YELLOW);
         rec3.setFill(Color.GREEN);
     }
+    
+    @FXML
+    private void clear(ActionEvent event) 
+    {
+        rec1.setFill(Color.WHITE);
+        rec2.setFill(Color.WHITE);
+        rec3.setFill(Color.WHITE);
+    }
 
+    @FXML
+    private void close(ActionEvent event)
+    {
+        Platform.exit();
+    }
+    
+    @FXML
+    private void initialize()
+    {
+        // Set the hover effect for the button
+        clear.setOnMouseEntered(event -> {
+            clear.setStyle("-fx-background-color: #FFFFFF;");
+        });
+        
+        clear.setOnMouseExited(event -> {
+            clear.setStyle("-fx-background-color: #;");
+        });
+        
+        close.setOnMouseEntered(event -> {
+            close.setStyle("-fx-background-color: #000000;");
+        });
+        
+        close.setOnMouseExited(event -> {
+            close.setStyle("-fx-background-color: #;");
+        });
+    }
 }
